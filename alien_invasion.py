@@ -17,13 +17,18 @@ def run_game():
 	ship = Ship(game_settings, screen)
 	# create a group for all bullets (inherited form Sprite superclass)
 	bullets = Group()
+	# create a group for aliens
+	aliens = Group()
+
+	# create a group of aliens before game starts
+	gf.create_fleet(game_settings, screen, ship, aliens)
 
 	# main loop for the game
 	while True:
 		gf.check_events(game_settings, screen, ship, bullets)
 		ship.update()
 		gf.update_bullets(bullets)
-		gf.update_screen(game_settings, screen, ship, bullets)
+		gf.update_screen(game_settings, screen, ship, aliens, bullets)
 
 		
 		# print(len(bullets))
