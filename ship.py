@@ -36,3 +36,6 @@ class Ship():
 	def blitme(self):
 		# put the ship at its place
 		self.screen.blit(self.image, self.rect)
+
+	def center_ship(self):
+		self.center = self.screen_rect.centerx
